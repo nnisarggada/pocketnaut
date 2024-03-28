@@ -1,6 +1,12 @@
 # PocketNaut by [Nnisarg Gada](https://nnisarg.in)
 
-> 🧑‍🚀 **A minimal Astro, Pocketbase, and TailwindCSS starter that uses Typescript and has sane defaults**
+> 🧑‍🚀 **A minimal Astro, PocketBase, and TailwindCSS starter that uses TypeScript and has sane defaults**
+
+## 📖 Documentation
+
+- [Astro](https://docs.astro.build)
+- [PocketBase](https://pocketbase.io/docs)
+- [TailwindCSS](https://tailwindcss.com/docs)
 
 ## 🚀 Project Structure
 

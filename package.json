@@ -1,6 +1,6 @@
 {
   "name": "pocketnaut",
-  "description": "PocketNaut is a minimal Astro, Pocketbase, and TailwindCSS starter that uses typescript and has sane defaults",
+  "description": "PocketNaut is a minimal Astro, PocketBase, and TailwindCSS starter that uses TypeScript and has sane defaults",
   "author": "Nnisarg Gada",
   "version": "1.0.1",
   "repository": {
