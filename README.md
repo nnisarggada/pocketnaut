@@ -1,6 +1,6 @@
 # PocketNaut by [Nnisarg Gada](https://nnisarg.in)
 
-![PocketNaut Banner](https://dev.nnisarg.in/pocketnaut/banner.png)
+https://dev.nnisarg.in/pocketnaut/intro.mp4
 
 > 🧑‍🚀 **A minimal Astro, PocketBase, and TailwindCSS starter that uses TypeScript and has sane defaults**
 
