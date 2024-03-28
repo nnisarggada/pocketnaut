@@ -8,6 +8,8 @@
 - [PocketBase](https://pocketbase.io/docs)
 - [TailwindCSS](https://tailwindcss.com/docs)
 
+## ‼️ Important: Ensure `pocketbase` is installed and added to `$PATH`
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
