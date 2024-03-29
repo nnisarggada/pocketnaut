@@ -4,6 +4,10 @@
 
 > 🧑‍🚀 **A minimal Astro, PocketBase, and TailwindCSS starter that uses TypeScript and has sane defaults**
 
+## 🚀 Getting Started
+
+### Simply run `npx pocketnaut` in your terminal and start coding!
+
 ## 📖 Documentation
 
 - [Astro](https://docs.astro.build)
