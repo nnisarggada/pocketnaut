@@ -14,7 +14,7 @@
 - [PocketBase](https://pocketbase.io/docs)
 - [TailwindCSS](https://tailwindcss.com/docs)
 
-## ‼️ Important: Ensure `pocketbase` is installed and added to `$PATH`
+## ‼️ Important: Ensure `pocketbase` is installed and move it to the `backend` folder
 
 ## 🚀 Project Structure
 
