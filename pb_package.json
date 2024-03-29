@@ -1,14 +1,6 @@
 {
   "name": "pocketnaut",
-  "description": "PocketNaut is a minimal Astro, PocketBase, and TailwindCSS starter that uses TypeScript and has sane defaults",
-  "author": "Nnisarg Gada",
-  "version": "1.0.3",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nnisarggada/pocketnaut"
-  },
   "type": "module",
-  "bin": "./bin/cli.js",
   "scripts": {
     "dev": "astro dev & cd backend && pocketbase serve",
     "build": "astro check && astro build",

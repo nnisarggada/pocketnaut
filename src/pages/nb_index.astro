@@ -1,15 +1,5 @@
 ---
 import Base from "@layouts/Base.astro";
-import pb from "@utils/pocketbase";
-
-let connected = false;
-
-try {
-  await fetch(pb.baseUrl);
-  connected = true;
-} catch (error) {
-  console.log(error);
-}
 ---
 
 <Base title="PocketNaut by Nnisarg Gada - nnisarg.in">
@@ -22,9 +12,6 @@ try {
         href="https://github.com/nnisarggada/pocketnaut"
         class="text-purple-400 underline underline-offset-4">PocketNaut!</a
       >
-    </h1>
-    <h1 class="text-center text-3xl font-bold">
-      PocketBase is {!connected && "not"} connected!
     </h1>
   </div>
 </Base>
