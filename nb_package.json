@@ -2,9 +2,9 @@
   "name": "pocketnaut",
   "type": "module",
   "scripts": {
-    "dev": "astro dev & cd backend && pocketbase serve",
+    "dev": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview & cd backend && pocketbase serve",
+    "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
