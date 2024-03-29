@@ -3,6 +3,8 @@
 import { execSync } from "child_process";
 import readline from "readline";
 
+let repoName = process.argv[2];
+
 const runCommand = (command) => {
   try {
     execSync(command, { stdio: "inherit" });
@@ -13,8 +15,16 @@ const runCommand = (command) => {
   return true;
 };
 
-const npmCommand = process.argv[0];
-let repoName = process.argv[2];
+const checkPnpm = () => {
+  try {
+    execSync("pnpm --version");
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+const npmCommand = checkPnpm() ? "pnpm" : "npm";
 
 if (!repoName) {
   const rl = readline.createInterface({
