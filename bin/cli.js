@@ -47,7 +47,7 @@ if (!repoName) {
   process.exit(1);
 }
 
-const gitCloneCommand = `git clone --depth 1 https://github.com/nnisarggada/create-pocketnaut ${repoName}`;
+const gitCloneCommand = `git clone --depth 1 https://github.com/nnisarggada/pocketnaut ${repoName}`;
 const installDependenciesCommand = `cd ${repoName} && ${npmCommand} install && ${npmCommand} update`;
 
 console.log(`Cloning repository to ${repoName}`);
