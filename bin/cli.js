@@ -2,6 +2,9 @@
 
 import { execSync } from "child_process";
 import readline from "readline";
+import path from "path";
+
+const isWindows = process.platform === "win32";
 
 let repoName = process.argv[2];
 let backend = process.argv[3];
@@ -18,7 +21,7 @@ const runCommand = (command) => {
 
 const checkPnpm = () => {
   try {
-    execSync("pnpm --version");
+    execSync(isWindows ? "pnpm.cmd --version" : "pnpm --version");
     return true;
   } catch (error) {
     return false;
@@ -56,12 +59,13 @@ if (!backend) {
     rl.question(
       "Do you want to use a pocketbase backend? (Y/n): ",
       (answer) => {
-        if (answer[0].toLowerCase() === "n") {
+        if (answer[0] && answer[0].toLowerCase() === "n") {
           console.log("Setting up without backend...");
           resolve("-nb");
+        } else {
+          console.log("Setting up with pocketbase...");
+          resolve("");
         }
-        console.log("Setting up with pocketbase...");
-        resolve("");
       },
     );
   });
@@ -69,11 +73,12 @@ if (!backend) {
 }
 
 const gitCloneCommand = `git clone --depth 1 https://github.com/nnisarggada/pocketnaut ${repoName}`;
-const setupCommand = `cd ${repoName} && rm -rf .git && git init && rm -rf bin && mkdir public && mkdir src/components && mkdir src/icons`;
-const noBackendCommand = `cd ${repoName} && mv nb_package.json package.json && rm pb_package.json && rm src/utils/pocketbase.ts && mv src/pages/nb_index.astro src/pages/index.astro`;
-const backendCommand = `cd ${repoName} && mv pb_package.json package.json && rm nb_package.json && rm src/pages/nb_index.astro && mkdir backend`;
-const changeProjectName = `cd ${repoName} && sed -i 's/pocketnaut/${repoName}/g' package.json`;
-const installDependenciesCommand = `cd ${repoName} && ${npmCommand} install && ${npmCommand} update`;
+const repoPath = path.resolve(process.cwd(), repoName);
+const setupCommand = `cd ${repoPath} && ${isWindows ? "rmdir /s /q .git" : "rm -rf .git"} && git init && ${isWindows ? "rmdir /s /q bin" : "rm -rf bin"} && mkdir public && mkdir src/components && mkdir src/icons`;
+const noBackendCommand = `cd ${repoPath} && ${isWindows ? "move" : "mv"} nb_package.json package.json && ${isWindows ? "del" : "rm"} pb_package.json && ${isWindows ? "del" : "rm"} src/utils/pocketbase.ts && ${isWindows ? "move" : "mv"} src/pages/nb_index.astro src/pages/index.astro`;
+const backendCommand = `cd ${repoPath} && ${isWindows ? "move" : "mv"} pb_package.json package.json && ${isWindows ? "del" : "rm"} nb_package.json && ${isWindows ? "del" : "rm"} src/pages/nb_index.astro && mkdir backend`;
+const changeProjectName = `cd ${repoPath} && sed -i 's/pocketnaut/${repoName}/g' package.json`;
+const installDependenciesCommand = `cd ${repoPath} && ${npmCommand} install && ${npmCommand} update`;
 
 console.log(`Cloning repository to ${repoName}...`);
 
@@ -113,5 +118,5 @@ if (!installSuccess) {
 }
 
 console.log(
-  `Done! Run "cd ${repoName} && ${npmCommand} dev" to start developing! 🚀`,
+  `Done! Run "cd ${repoPath} && ${npmCommand} dev" to start developing! 🚀`,
 );
