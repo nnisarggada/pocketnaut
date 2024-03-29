@@ -24,4 +24,4 @@ pnpm-lock.yaml
 .DS_Store
 
 #backend
-backend/*
+backend/pb_data/
