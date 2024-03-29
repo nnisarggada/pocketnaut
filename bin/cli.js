@@ -21,7 +21,7 @@ const runCommand = (command) => {
 
 const checkPnpm = () => {
   try {
-    execSync(isWindows ? "pnpm.cmd --version" : "pnpm --version");
+    execSync("pnpm --version");
     return true;
   } catch (error) {
     return false;
