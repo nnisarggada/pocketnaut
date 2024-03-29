@@ -56,9 +56,11 @@ if (!backend) {
     rl.question(
       "Do you want to use a pocketbase backend? (Y/n): ",
       (answer) => {
-        if (answer.toLowerCase() === "n") {
+        if (answer[0].toLowerCase() === "n") {
+          console.log("Setting up without backend...");
           resolve("-nb");
         }
+        console.log("Setting up with pocketbase...");
         resolve("");
       },
     );
