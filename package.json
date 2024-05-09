@@ -10,9 +10,9 @@
   "type": "module",
   "bin": "./bin/cli.js",
   "scripts": {
-    "dev": "astro dev & cd backend && pocketbase serve",
+    "dev": "astro dev & cd backend && ./pocketbase serve",
     "build": "astro check && astro build",
-    "preview": "astro preview & cd backend && pocketbase serve",
+    "preview": "astro preview & cd backend && ./pocketbase serve",
     "astro": "astro"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.14"
   }
 }
