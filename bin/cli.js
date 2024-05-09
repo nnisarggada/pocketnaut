@@ -76,8 +76,8 @@ if (!backend) {
 const gitCloneCommand = `git clone --depth 1 https://github.com/nnisarggada/pocketnaut ${repoName}`;
 const repoPath = path.resolve(process.cwd(), repoName);
 const setupCommand = `cd ${repoPath} && ${isWindows ? "rd /s /q .git" : "rm -rf .git"} && git init && ${isWindows ? "rd /s /q bin" : "rm -rf bin"} && mkdir public && mkdir src/components && mkdir src/icons`;
-const noBackendCommand = `cd ${repoPath} && ${isWindows ? "move" : "mv"} nb_package.json package.json && ${isWindows ? "del" : "rm"} pb_package.json && ${isWindows ? "del" : "rm"} src/utils/pocketbase.ts && ${isWindows ? "move" : "mv"} src/pages/nb_index.astro src/pages/index.astro`;
-const backendCommand = `cd ${repoPath} && ${isWindows ? "move" : "mv"} pb_package.json package.json && ${isWindows ? "del" : "rm"} nb_package.json && ${isWindows ? "del" : "rm"} src/pages/nb_index.astro && cd backend && ./pocketbase_${isWindows ? "windows" : isMac ? "darwin" : "linux"} update && cd ../ && sed -i 's/pocketbase/${isWindows ? "pocketbase_windows" : isMac ? "pocketbase_darwin" : "pocketbase_linux"}/g' package.json`;
+const noBackendCommand = `cd ${repoPath} && ${isWindows ? "move" : "mv"} nb_package.json package.json && ${isWindows ? "del" : "rm"} pb_package.json && ${isWindows ? "del" : "rm"} src/utils/pocketbase.ts && ${isWindows ? "move" : "mv"} src/pages/nb_index.astro src/pages/index.astro && ${isWindows ? "rd /s /q backend" : "rm -rf backend"}`;
+const backendCommand = `cd ${repoPath} && ${isWindows ? "move" : "mv"} pb_package.json package.json && ${isWindows ? "del" : "rm"} nb_package.json && ${isWindows ? "del" : "rm"} src/pages/nb_index.astro && cd backend && ${isWindows ? "move pocketbase_windows pocketbase" : `mv pocketbase_${isMac ? "darwin" : "linux"} pocketbase`} && ./pocketbase update`;
 const changeProjectName = `cd ${repoPath} && sed -i 's/pocketnaut/${repoName}/g' package.json`;
 const installDependenciesCommand = `cd ${repoPath} && ${npmCommand} install && ${npmCommand} update`;
 
